@@ -1,0 +1,38 @@
+{
+  "name": "html-webpack-exclude-empty-assets-plugin",
+  "version": "0.1.0",
+  "description": "Add the ability to exclude empty assets",
+  "main": "index.js",
+  "files": [
+    "index.js"
+  ],
+  "scripts": {
+    "release": "standard-version"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/KnisterPeter/html-webpack-exclude-empty-assets-plugin.git"
+  },
+  "keywords": [
+    "webpack",
+    "plugin",
+    "html-webpack-plugin",
+    "exclude",
+    "assets"
+  ],
+  "engines": {
+    "node": ">=4.0.0"
+  },
+  "author": {
+    "name": "Markus Wolf",
+    "email": "knister.peter@shadowrun-clan.de"
+  },
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/KnisterPeter/html-webpack-exclude-empty-assets-plugin/issues"
+  },
+  "homepage": "https://github.com/KnisterPeter/html-webpack-exclude-empty-assets-plugin",
+  "devDependencies": {
+    "standard-version": "^4.3.0"
+  }
+}
