@@ -20,20 +20,14 @@ class HtmlWebpackExcludeEmptyAssetsPlugin {
 
   processAssets(pluginData, compilation) {
     const base = JSON.parse(pluginData.plugin.assetJson)[0];
-    const head = pluginData.head.filter(
-      tag =>
+    const filterTag = tag =>
+        !["link", "script"].includes(tag.tagName) ||
         !Boolean(tag.attributes) ||
-        !this.isEmpty(tag.attributes.src || tag.attributes.href, base, compilation)
-    );
-    const body = pluginData.body.filter(
-      tag =>
-        !Boolean(tag.attributes) ||
-        !this.isEmpty(tag.attributes.src || tag.attributes.href, base, compilation)
-    );
+        !this.isEmpty(tag.attributes.src || tag.attributes.href, base, compilation);
 
     return {
-      head,
-      body,
+      head: pluginData.head.filter(filterTag),
+      body: pluginData.body.filter(filterTag),
       plugin: pluginData.plugin,
       chunks: pluginData.chunks,
       outputName: pluginData.outputName
