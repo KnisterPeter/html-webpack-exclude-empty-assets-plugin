@@ -35,7 +35,7 @@
   "homepage": "https://github.com/KnisterPeter/html-webpack-exclude-empty-assets-plugin",
   "devDependencies": {
     "prettier": "^2.0.5",
-    "standard-version": "^4.3.0"
+    "standard-version": "^8.0.0"
   },
   "prettier": {},
   "renovate": {
