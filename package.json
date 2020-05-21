@@ -1,6 +1,6 @@
 {
   "name": "html-webpack-exclude-empty-assets-plugin",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "description": "Add the ability to exclude empty assets",
   "main": "index.js",
   "files": [
