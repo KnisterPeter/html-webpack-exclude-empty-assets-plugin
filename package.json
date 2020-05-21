@@ -34,6 +34,32 @@
   },
   "homepage": "https://github.com/KnisterPeter/html-webpack-exclude-empty-assets-plugin",
   "devDependencies": {
+    "prettier": "^2.0.5",
     "standard-version": "^4.3.0"
+  },
+  "prettier": {},
+  "renovate": {
+    "lockFileMaintenance": {
+      "enabled": true,
+      "automerge": true
+    },
+    "packageRules": [
+      {
+        "depTypeList": [
+          "devDependencies"
+        ],
+        "updateTypes": [
+          "minor",
+          "patch"
+        ],
+        "automerge": true
+      },
+      {
+        "packagePatterns": [
+          "^@types/"
+        ],
+        "automerge": true
+      }
+    ]
   }
 }

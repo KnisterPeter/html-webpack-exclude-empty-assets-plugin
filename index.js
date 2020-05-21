@@ -1,9 +1,9 @@
-const path = require('path');
-const fs = require('fs');
+const path = require("path");
+const fs = require("fs");
 
 class HtmlWebpackExcludeEmptyAssetsPlugin {
   apply(compiler) {
-    compiler.plugin("compilation", compilation => {
+    compiler.plugin("compilation", (compilation) => {
       compilation.plugin(
         "html-webpack-plugin-alter-asset-tags",
         (htmlPluginData, callback) => {
@@ -20,17 +20,21 @@ class HtmlWebpackExcludeEmptyAssetsPlugin {
 
   processAssets(pluginData, compilation) {
     const base = JSON.parse(pluginData.plugin.assetJson)[0];
-    const filterTag = tag =>
-        !["link", "script"].includes(tag.tagName) ||
-        !Boolean(tag.attributes) ||
-        !this.isEmpty(tag.attributes.src || tag.attributes.href, base, compilation);
+    const filterTag = (tag) =>
+      !["link", "script"].includes(tag.tagName) ||
+      !Boolean(tag.attributes) ||
+      !this.isEmpty(
+        tag.attributes.src || tag.attributes.href,
+        base,
+        compilation
+      );
 
     return {
       head: pluginData.head.filter(filterTag),
       body: pluginData.body.filter(filterTag),
       plugin: pluginData.plugin,
       chunks: pluginData.chunks,
-      outputName: pluginData.outputName
+      outputName: pluginData.outputName,
     };
   }
 
