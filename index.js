@@ -14,14 +14,14 @@ class HtmlWebpackExcludeEmptyAssetsPlugin {
       if(compilation.hooks) {
         // webpack 4.x and later
         if(compilation.hooks['htmlWebpackPluginAlterAssetTags']) {
-          compilation.hooks['htmlWebpackPluginAlterAssetTags'].tapAsync(this.PLUGIN, (htmlPluginData) => {
+          compilation.hooks['htmlWebpackPluginAlterAssetTags'].tap(this.PLUGIN, (htmlPluginData) => {
             const result = this.processAssets(htmlPluginData, compilation);
             return Promise.resolve(result);
           });
         } else {
           // HtmlWebpackPlugin 4.x and later
           const hooks = HtmlWebpackPlugin.getHooks(compilation);
-          hooks["alterAssetTags"].tapAsync(this.PLUGIN, (htmlPluginData) => {
+          hooks["alterAssetTags"].tap(this.PLUGIN, (htmlPluginData) => {
             const result = this.processAssets(htmlPluginData, compilation);
             return Promise.resolve(result);
           });
@@ -83,7 +83,7 @@ class HtmlWebpackExcludeEmptyAssetsPlugin {
     const rel = assetPath.substr(base.length);
     const source = compilation.assets[rel];
     if (source && source.size) {
-      return source.size() === 0 || source.size() < this.minBytes;
+      return source.size() === 0 || source.size() <= this.minBytes;
     }
     return false;
   }
