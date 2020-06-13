@@ -17,3 +17,15 @@ module.exports = {
   ]
 };
 ```
+
+## All Configuration Options
+
+The HtmlWebpackExcludeEmptyAssetsPlugin accepts an object of options with the following attributes:
+
+```js
+new HtmlWebpackExcludeEmptyAssetsPlugin({,
+  minBytes: 1024
+})
+```
+
+* `minBytes` - the minimum byte size a file has to meet to not be deleted. Defaults to 1024 bytes.
